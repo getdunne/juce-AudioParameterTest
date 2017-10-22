@@ -1,5 +1,5 @@
 # juce-AudioParameterTest
-This is a very simple [JUCE](https://www.juce.com)-based audio plugin (tested in VST and AU builds only) illustrating one approach to handling parameter automation. It consists of a single oscillator driven by four parameters, accessible either via its own custom GUI, or via the host's (e.g. DAW) generic GUI and automation interface. For simplicity, it ignores MIDI and outputs sound continuously; it is thus a *generator* plugin rather than a *synthesizer*. (For examples of JUCE synthesizers, see my [VanillaJuce](https://github.com/getdunne/VanillaJuce) and [SARAH](https://github.com/getdunne/SARAH) projects.)
+This is a very simple [JUCE](https://www.juce.com)-based audio plugin illustrating one approach to handling parameter automation. It consists of a single oscillator driven by four parameters, accessible either via its own custom GUI, or via the host's (e.g. DAW) generic GUI and automation interface. For simplicity, it ignores MIDI and outputs sound continuously; it is thus a *generator* plugin rather than a *synthesizer*. (For examples of true JUCE synthesizers, see my [VanillaJuce](https://github.com/getdunne/VanillaJuce) and [SARAH](https://github.com/getdunne/SARAH) projects.)
 
 As simple as this code may be, it is not a toy example. I have attempted to produce code which can be used as a template for realistic plugin projects with many more parameters. An important aspect of this is that all of the parameter-related code is encapsulated in a single **PluginParameters** class.
 
@@ -7,14 +7,14 @@ As simple as this code may be, it is not a toy example. I have attempted to prod
 [JUCE](https://www.juce.com) provides a nice set of classes for handling communication of parameter-value changes between a plugin (VST, AU, etc.) and its host program (e.g. [DAW](https://en.wikipedia.org/wiki/Digital_audio_workstation)). All derive from a common parent **AudioParameter**, and are specialized for the four most common kinds of plugin parameters as follows:
 - **AudioParameterFloat** represents a floating-point value, e.g. a value set by a knob or slider. This is the most basic kind of parameter, because floating-point parameters are supported by all plugin hosts, regardless of the specific interface technology.
 - **AudioParameterInt** represents an integer value, e.g. something like a MIDI note-number or velocity.
-- **AudioParameterBool** represents a logical value (*true* or *false*), e.g. whether a certain effect or function is enabled or not. You could think of this a specialized form of integer parameter where the range is restricted to [0,1].
-- **AudioParameterChoice** represents a discrete choice among a defined set of values, e.g. an oscillator waveform type chosen from the set { *sine, triangle, square, sawtooth* }. You could think of this as another specialized form of integer parameter, where the range is restricted to [0, *number_of_choices*-1].
+- **AudioParameterChoice** represents a discrete choice among a defined set of values, e.g. an oscillator waveform type chosen from the set { *sine, triangle, square, sawtooth* }. You could think of this as a specialized form of integer parameter, where the range is restricted to [0, *number_of_choices*-1].
+- **AudioParameterBool** represents a logical value (*true* or *false*), e.g. whether a certain effect or function is enabled or not. You could think of this a limited form of choice parameter where the available choices is { *false, true* }.
 
-I had difficulty finding code examples showing how all of these classes ought to be used, so as to provide true bi-directional communication of parameter values, i.e.,
+I had difficulty finding code examples showing how all of these classes ought to be used, so I decided to create my own. My goal was to verify what is called *automation* in audio-recording parlance, which requires true bi-directional communication of parameter values, i.e.,
 - Plugin to host: user manipulates GUI controls, changes are recorded by a host DAW.
 - Host to plugin: DAW recreates user's manipulations automatically using playback.
 
-Such bi-directional communication is referred to as *automation* in audio-recording parlance.
+I have fully tested the Audio Unit (v2) build under Logic Pro X on the Mac, and the VST (v2) build under Reaper v5.52/x64 on Windows 10, including automation with all four parameters. I do not have the means to test other plugin types.
 
 # Warning: deprecated approach #
 While **AudioParameter** and its descendants are still supported in JUCE 5.1.2, but the critical member function **AudioProcessor::setParameter()** is marked as deprecated, so this approach is likely to become obsolete in some future JUCE release. It's being replaced by a quite different set of classes built around **AudioProcessorValueTreeState**, which offers the possibility of more streamlined code as well as built-in support for *undo* functionality.
@@ -29,6 +29,6 @@ I chose to use the older **AudioParameter**-based classes for my first foray int
 
 # Detailed description coming soon #
 
-I intend to write a more detailed description of this code soon, which will be available at my site http://getdunne.net/wiki.
+I intend to write a more detailed description of this code soon, which will be available at http://getdunne.net/wiki/doku.php?id=juce_and_parameter_automation.
 
 Note that the **SynthWaveform** and **SynthOscillator** classes are taken directly from my [VanillaJuce](https://github.com/getdunne/VanillaJuce) synthesizer-plugin code; they are not new to this project.
