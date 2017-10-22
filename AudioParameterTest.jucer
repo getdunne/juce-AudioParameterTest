@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="IV2hPc" name="AudioParameterTest" displaySplashScreen="1"
+              reportAppUsage="1" splashScreenColour="Dark" projectType="audioplug"
+              version="1.0.0" bundleIdentifier="com.yourcompany.AudioParameterTest"
+              includeBinaryInAppConfig="1" cppLanguageStandard="11" buildVST="1"
+              buildVST3="0" buildAU="1" buildAUv3="0" buildRTAS="0" buildAAX="0"
+              buildStandalone="0" enableIAA="0" pluginName="AudioParameterTest"
+              pluginDesc="AudioParameterTest" pluginManufacturer="yourcompany"
+              pluginManufacturerCode="Manu" pluginCode="Iv2h" pluginChannelConfigs=""
+              pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
+              pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="AudioParameterTestAU"
+              pluginRTASCategory="" aaxIdentifier="com.yourcompany.AudioParameterTest"
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.1.2">
+  <MAINGROUP id="y60M3P" name="AudioParameterTest">
+    <GROUP id="{3A42E222-6935-DF3F-B6B9-1B89F9801A39}" name="Source">
+      <FILE id="F1N03k" name="PluginParameters.cpp" compile="1" resource="0"
+            file="Source/PluginParameters.cpp"/>
+      <FILE id="jnNxSw" name="PluginParameters.h" compile="0" resource="0"
+            file="Source/PluginParameters.h"/>
+      <FILE id="O7mqh0" name="SynthOscillator.cpp" compile="1" resource="0"
+            file="Source/SynthOscillator.cpp"/>
+      <FILE id="ifbK8R" name="SynthOscillator.h" compile="0" resource="0"
+            file="Source/SynthOscillator.h"/>
+      <FILE id="TGSDSc" name="SynthWaveform.cpp" compile="1" resource="0"
+            file="Source/SynthWaveform.cpp"/>
+      <FILE id="XXCVrY" name="SynthWaveform.h" compile="0" resource="0" file="Source/SynthWaveform.h"/>
+      <FILE id="hiR7Oq" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="U7gxez" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="jdunJo" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="m51mkh" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="AudioParameterTest"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="AudioParameterTest"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="C:/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2017 targetFolder="Builds/VisualStudio2017">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       isDebug="1" optimisation="1" targetName="AudioParameterTest"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       isDebug="0" optimisation="3" targetName="AudioParameterTest"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="C:/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2017>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="1" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="1" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="1" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="1"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="1" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="1" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="1" useGlobalPath="1"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="1" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="1" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="1" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="1" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="1" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="1" useGlobalPath="1"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="1" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
+</JUCERPROJECT>
