@@ -8,7 +8,7 @@
               buildStandalone="0" enableIAA="0" pluginName="AudioParameterTest"
               pluginDesc="AudioParameterTest" pluginManufacturer="yourcompany"
               pluginManufacturerCode="Manu" pluginCode="Iv2h" pluginChannelConfigs=""
-              pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
+              pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="0"
               pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="AudioParameterTestAU"
               pluginRTASCategory="" aaxIdentifier="com.yourcompany.AudioParameterTest"
               pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.1.2">

@@ -66,12 +66,23 @@ void PluginProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiM
 
     float level = parameters.level;
     if (parameters.loud) level *= 2.0f;
-
-    float* pLeft = buffer.getWritePointer(0);
-    float* pRight = buffer.getWritePointer(1);
-    for (int i = 0; i < buffer.getNumSamples(); i++)
+    
+    if (buffer.getNumChannels() == 1)
     {
-        *pLeft++ = *pRight++ = oscillator.getSample() * level;
+        float* pLeft = buffer.getWritePointer(0);
+        for (int i = 0; i < buffer.getNumSamples(); i++)
+        {
+            *pLeft++ = oscillator.getSample() * level;
+        }
+    }
+    else
+    {
+        float* pLeft = buffer.getWritePointer(0);
+        float* pRight = buffer.getWritePointer(1);
+        for (int i = 0; i < buffer.getNumSamples(); i++)
+        {
+            *pLeft++ = *pRight++ = oscillator.getSample() * level;
+        }
     }
 }
 
