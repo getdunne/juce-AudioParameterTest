@@ -32,3 +32,11 @@ I chose to use the older **AudioParameter**-based classes for my first foray int
 I intend to write a more detailed description of this code soon, which will be available at http://getdunne.net/wiki/doku.php?id=juce_and_parameter_automation.
 
 Note that the **SynthWaveform** and **SynthOscillator** classes are taken directly from my [VanillaJuce](https://github.com/getdunne/VanillaJuce) synthesizer-plugin code; they are not new to this project.
+
+This plugin has exactly four parameters, corresponding to the four //AudioParameter// subclasses:
+1. **Waveform** is a choice parameter, with options *sine, triangle, square,* and *sawtooth*.
+2. **MIDI note number** is an integer parameter, in the range [0..127].
+3. **Level** is a float parameter, in the range [0, 1.0]
+4. **Loud** is a Boolean parameter. When true, the *level* setting is effectively doubled.
+
+The *loud* parameter is obviously not realistic. I originally defined a Boolean parameter to invert the phase of the oscillator, but this was difficult to test by ear.
