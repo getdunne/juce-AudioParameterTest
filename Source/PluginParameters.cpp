@@ -114,8 +114,10 @@ void PluginParameters::putToXml(XmlElement& xml)
 
 void PluginParameters::getFromXml(XmlElement* pXml)
 {
-    waveform.setFromName(pXml->getStringAttribute(waveform_Name));
-    midiNoteNumber = pXml->getIntAttribute(midiNoteNumber_Name);
-    level = (float)pXml->getDoubleAttribute(level_Name);
-    loud = pXml->getBoolAttribute(loud_Name);
+    SynthWaveform wf;
+    wf.setFromName(pXml->getStringAttribute(waveform_Name));
+    *pWaveformParam = wf.getIndex();
+    *pNoteNumberParam = pXml->getIntAttribute(midiNoteNumber_Name);
+    *pLevelParam = (float)pXml->getDoubleAttribute(level_Name);
+    *pLoudParam = pXml->getBoolAttribute(loud_Name);
 }

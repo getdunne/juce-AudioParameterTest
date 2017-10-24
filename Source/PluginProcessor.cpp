@@ -38,6 +38,8 @@ PluginProcessor::~PluginProcessor()
 
 void PluginProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
+    ignoreUnused(samplesPerBlock);
+
     oscillator.setFrequency(MidiMessage::getMidiNoteInHertz(parameters.midiNoteNumber) / sampleRate);
 }
 
@@ -62,6 +64,8 @@ bool PluginProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 
 void PluginProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
+    ignoreUnused(midiMessages);
+
     oscillator.setFrequency(MidiMessage::getMidiNoteInHertz(parameters.midiNoteNumber) / getSampleRate());
 
     float level = parameters.level;
@@ -97,4 +101,5 @@ void PluginProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     ScopedPointer<XmlElement> pXml = getXmlFromBinary(data, sizeInBytes);
     parameters.getFromXml(pXml);
+    parameters.UpdateWorkingValuesFromPluginParameters();
 }

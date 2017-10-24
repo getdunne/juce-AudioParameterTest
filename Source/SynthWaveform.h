@@ -18,6 +18,9 @@ public:
     // set to default state after construction
     void setToDefault() { index = kSine; }
 
+    // get index as a 0-based integer
+    int getIndex() { return (int)index; }
+
     // serialize: get human-readable name of this waveform
     String name();
 
