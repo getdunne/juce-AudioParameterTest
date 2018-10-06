@@ -1,9 +1,13 @@
 # juce-AudioParameterTest
+**This code is obsolete as of JUCE v5.3.2** and is preserved here for historical/educational purposes only. See [juce-AudioProcessorValueTreeState](https://github.com/getdunne/juce-AudioProcessorValueTreeStateTest) for an improved approach.
+
 This is a very simple [JUCE](https://www.juce.com)-based audio plugin illustrating a *first approach* to handling parameter automation. (See [juce-AudioProcessorValueTreeState](https://github.com/getdunne/juce-AudioProcessorValueTreeStateTest) for the second one.) It consists of a single oscillator driven by four parameters, accessible either via its own custom GUI, or via the host's (e.g. DAW) generic GUI and automation interface. For simplicity, it ignores MIDI and outputs sound continuously; it is thus a *generator* plugin rather than a *synthesizer*. (For examples of true JUCE synthesizers, see my [VanillaJuce](https://github.com/getdunne/VanillaJuce) and [SARAH](https://github.com/getdunne/SARAH) projects.)
 
 As simple as this code may be, it is not a toy example. I have attempted to produce code which can be used as a template for realistic plugin projects with many more parameters. An important aspect of this is that all of the parameter-related code is encapsulated in a single **PluginParameters** class.
 
-# Background #
+
+
+## Background
 [JUCE](https://www.juce.com) provides a nice set of classes for handling communication of parameter-value changes between a plugin (VST, AU, etc.) and its host program (e.g. [DAW](https://en.wikipedia.org/wiki/Digital_audio_workstation)). All derive from a common parent **AudioParameter**, and are specialized for the four most common kinds of plugin parameters as follows:
 - **AudioParameterFloat** represents a floating-point value, e.g. a value set by a knob or slider. This is the most basic kind of parameter, because floating-point parameters are supported by all plugin hosts, regardless of the specific interface technology.
 - **AudioParameterInt** represents an integer value, e.g. something like a MIDI note-number or velocity.
@@ -16,7 +20,7 @@ I had difficulty finding code examples showing how all of these classes ought to
 
 I have fully tested the Audio Unit (v2) build under Logic Pro X on the Mac, and the VST (v2) build under Reaper v5.52/x64 on Windows 10, including automation with all four parameters. I do not have the means to test other plugin types.
 
-# Warning: deprecated approach #
+## Warning: deprecated approach
 While **AudioParameter** and its descendants are still supported in JUCE 5.1.2, but the critical member function **AudioProcessor::setParameter()** is marked as deprecated, so this approach is likely to become obsolete in some future JUCE release. It's being replaced by a quite different set of classes built around **AudioProcessorValueTreeState**, which offers the possibility of more streamlined code as well as built-in support for *undo/redo* functionality. See [juce-AudioProcessorValueTreeState](https://github.com/getdunne/juce-AudioProcessorValueTreeStateTest).
 
 I chose to use the older **AudioParameter**-based classes for my first foray into parameter automation, for three reasons:
@@ -25,7 +29,7 @@ I chose to use the older **AudioParameter**-based classes for my first foray int
 3. It supports the four kinds of parameters listed above; **AudioProcessorValueTreeState** seems to support only float parameters at this time.
 4. Now that I have something fully working and testable in various DAWs, I have a basis for comparison for when I build an **AudioProcessorValueTreeState**-based version. I am hopeful that at least the overall structure of my code will be useful for this.
 
-# Detailed description #
+## Detailed description
 
 I intend to write a more detailed description of this code soon, which will be available at http://getdunne.net/wiki/doku.php?id=juce_and_parameter_automation.
 
