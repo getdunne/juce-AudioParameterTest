@@ -6,7 +6,6 @@ This is a very simple [JUCE](https://www.juce.com)-based audio plugin illustrati
 As simple as this code may be, it is not a toy example. I have attempted to produce code which can be used as a template for realistic plugin projects with many more parameters. An important aspect of this is that all of the parameter-related code is encapsulated in a single **PluginParameters** class.
 
 
-
 ## Background
 [JUCE](https://www.juce.com) provides a nice set of classes for handling communication of parameter-value changes between a plugin (VST, AU, etc.) and its host program (e.g. [DAW](https://en.wikipedia.org/wiki/Digital_audio_workstation)). All derive from a common parent **AudioParameter**, and are specialized for the four most common kinds of plugin parameters as follows:
 - **AudioParameterFloat** represents a floating-point value, e.g. a value set by a knob or slider. This is the most basic kind of parameter, because floating-point parameters are supported by all plugin hosts, regardless of the specific interface technology.
@@ -44,30 +43,13 @@ This plugin has exactly four parameters, corresponding to the four **AudioParame
 (The *loud* parameter is not very realistic. I originally defined a Boolean parameter to invert the phase of the oscillator, but this was difficult to test by ear.)
 
 ## Code licensing terms
-This code is licensed under the terms of the MIT License (below, and also in the file *LICENSE* in this repo). To compile it, you will need a copy of the [JUCE framework](https://juce.com), and the resulting *combined work* will be subject to JUCE's own licensing terms.
+This code is licensed under the terms of the MIT License (see the file *LICENSE* in this repo). To compile it, you will need a copy of the [JUCE framework](https://juce.com), and the resulting *combined work* will be subject to JUCE's own licensing terms, and under certain circumstances may become subject to the [GNU General Public License, version 3 (GPL3)](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
-It is my INTENT, as the author of this code, that everyone should have the right to use all or part of it in any JUCE-based program, and in the event that any such program should become subject to the GPL3 license (in accordance with the JUCE license terms), that this right should not be abridged. However, I doubt that this statement of intent would carry any weight under the law, so at this point I can only say: USE AT YOUR OWN RISK.
+I am grateful to Julian Storer of Roli, Inc. for clarifying, via the [JUCE Forum](https://forum.juce.com/t/open-source-without-gpl/29721), that this code will continue to be freely usable under the terms of the MIT license, because
+1. The MIT license is "GPL3 compatible" according to the Free Software Foundation.
+2. Clause 5(c) of the GPL3 specifically states that it does not invalidate less restrictive usage permissions explicitly granted by a copyright holder.
+3. The JUCE license does not affect copyright status of MIT-licensed code in combined works.
+
+In light of these considerations, and for maximum clarity, I have added my copyright notice and the full text of the MIT license to every one of the source files in this repo.
 
 Shane Dunne, October 2018
-
-> The MIT License (MIT)
-> 
-> Copyright (c) 2017-2018 Shane D. Dunne
-> 
-> Permission is hereby granted, free of charge, to any person obtaining a copy
-> of this software and associated documentation files (the "Software"), to deal
-> in the Software without restriction, including without limitation the rights
-> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-> copies of the Software, and to permit persons to whom the Software is
-> furnished to do so, subject to the following conditions:
-> 
-> The above copyright notice and this permission notice shall be included in
-> all copies or substantial portions of the Software.
-> 
-> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-> THE SOFTWARE.
